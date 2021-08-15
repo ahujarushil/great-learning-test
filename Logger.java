@@ -36,19 +36,21 @@ public class Logger {
 
         final String [][] tableData = new String [n + 1][];
 
-        String [] str = new String[3];
+        String [] str = new String[4];
         str[0] = "Rank";
         str[1] = "Name";
         str[2] = "Score";
+        str[3] = "Status";
         tableData[0] = str;
 
 
         for(int i = 0; i < n; ++i) {
             final Player p = allPlayers.get(i);
-            str = new String [3];
+            str = new String [4];
             str[0] = String.valueOf(i + 1);
             str[1] = "Player - " + p.getName();
             str[2] = String.valueOf(p.getScore());
+            str[3] = p.isFinished() ? "Completed" : "In Progress";
             tableData[i + 1] = str;
 
         }

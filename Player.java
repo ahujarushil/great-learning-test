@@ -10,6 +10,17 @@ public class Player {
 
     private int prevRoll;
 
+    private boolean isFinished;
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public Player setFinished(boolean finished) {
+        isFinished = finished;
+        return this;
+    }
+
     public int getId() {
         return id;
     }

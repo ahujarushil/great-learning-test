@@ -1,7 +1,7 @@
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.Random;
 
 public class Main {
 
@@ -33,6 +33,9 @@ public class Main {
 
             int N = Integer.parseInt(args[0]);
             int M = Integer.parseInt(args[1]);
+
+            if(N < 0 || M < 0)
+                throw new IllegalArgumentException();
 
             configureApplicationContext(N, M);
 

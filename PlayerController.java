@@ -49,6 +49,7 @@ public class PlayerController {
 
     private void addPlayerToCompleted(final Player player) {
         List<Player> completedPlayers = context.getCompletedPlayers();
+        player.setFinished(true);
         completedPlayers.add(player);
     }
 
@@ -80,6 +81,7 @@ public class PlayerController {
 
         if(activePlayer.isShouldSkip()) {
             activePlayer.setShouldSkip(false);
+            moveToNextPlayer();
             return;
         }
 
@@ -94,6 +96,9 @@ public class PlayerController {
         activePlayer.setPrevRoll(roll);
 
         logger.printRolledValue(roll);
+
+        if(hasCompleted(activePlayer.getScore()))
+            activePlayer.setFinished(true);
 
         logger.printTally();
 
