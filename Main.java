@@ -25,13 +25,21 @@ public class Main {
 
 
     public static void main(String[] args) {
-        int N = 1;
-        int M = 10;
 
-        configureApplicationContext(N, M);
+        try {
+            if(args.length < 2 || args.length > 2)
+                throw new IllegalArgumentException();
 
-        ApplicationController
-                .getInstance()
-                .startApplication();
+            int N = Integer.parseInt(args[0]);
+            int M = Integer.parseInt(args[1]);
+
+            configureApplicationContext(N, M);
+
+            ApplicationController
+                    .getInstance()
+                    .startApplication();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
