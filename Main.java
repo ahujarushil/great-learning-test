@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -20,7 +21,7 @@ public class Main {
                 .setWinningPoints(winningPoints)
                 .setPlayerList(players)
                 .setActivePlayers(players)
-                .setActivePlayerId(1);
+                .setActivePlayerId(new Random().nextInt(numberOfPlayers));
     }
 
 
