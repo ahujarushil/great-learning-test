@@ -74,6 +74,10 @@ public class PlayerController {
         context.setActivePlayerId(nextActivePlayer.getId());
     }
 
+    private void clearPrevRoll(final Player player) {
+        player.setPrevRoll(-1);
+    }
+
 
     public void rollDice() {
         Player activePlayer = getActivePlayer();
@@ -82,6 +86,7 @@ public class PlayerController {
         if(activePlayer.isShouldSkip()) {
             activePlayer.setShouldSkip(false);
             moveToNextPlayer();
+            clearPrevRoll(activePlayer);
             return;
         }
 
